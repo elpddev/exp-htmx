@@ -7,6 +7,18 @@ Follow along of Frontend master & Primagen course - [FULL Introduction To HTMX U
 * [The Primeagen](https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw)
 * [FrontEnd Masters](https://frontendmasters.com/)
 
+## Follow Along
+
+### Form Replacing Inner - Creating Double 'Display'
+
+Instead of replacing the inner html, the target could be specified to swap the outer html.
+
+[hx-swap](ttps://htmx.org/attributes/hx-swap/)
+
+```html
+<form hx-swap="outerHTML">
+```
+
 ## Tools & Technologies
 
 ### HTMX
