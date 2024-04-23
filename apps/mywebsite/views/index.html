@@ -9,12 +9,33 @@
     <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
   </head>
   <body>
-    <div id="count">{{ template "count" . }}</div>
-    <button hx-post="/count" hx-target="#count">Increment</button>
+    {{ template "form" . }}
+    <hr />
+      {{ template "display" . }}
   </body>
 </html>
 {{ end }} 
 
-{{ block "count" . }} 
-  Count {{ .Count }} 
+{{ block "form" . }}
+<form hx-swap="outerHTML" hx-post="/contacts" hx-target="#display">
+  <div style="display: flex; flex-direction=column;">
+    <label>name:</label> 
+    <input type="text" name="name" /> 
+    <label>email:</label> 
+    <input type="email" name="email" />
+    <button type="submit">Create Contact</button>
+  </div>
+</form>
+{{ end }} 
+
+{{ block "display" . }}
+<div id="display">
+  <div style="display: flex; flex-direction: column;">
+    {{ range .Contacts }}
+    <div>
+      Name: <span>{{ .Name }}</span> 
+      Email: <span>{{ .Email }}</span></div>
+    {{ end}}
+  </div>
+</div>
 {{ end }}
