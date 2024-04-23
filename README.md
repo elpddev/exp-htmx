@@ -7,6 +7,38 @@ Follow along of Frontend master & Primagen course - [FULL Introduction To HTMX U
 * [The Primeagen](https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw)
 * [FrontEnd Masters](https://frontendmasters.com/)
 
+## Follow Along
+
+### Form Replacing Inner - Creating Double 'Display'
+
+Instead of replacing the inner html, the target could be specified to swap the outer html.
+
+[hx-swap](ttps://htmx.org/attributes/hx-swap/)
+
+```html
+<form hx-swap="outerHTML">
+```
+
+### Adding only one item to the dom - Not replacing all list
+
+[hx-swap-oob](https://htmx.org/attributes/hx-swap-oob/)
+
+The hx-swap-oob attribute allows you to specify that some content in a response should be swapped into the DOM **somewhere other** than the target, that is “Out of Band”. 
+
+This allows you to piggy back updates to other element updates on a response.
+
+For oob swap, we also need to specify what the original target should be replaced with. Otherwise it will be replaced with null.
+
+### Debugging
+
+https://htmx.org/docs/#debugging
+
+On the console:
+
+```
+htmx.logAll()
+```
+
 ## Tools & Technologies
 
 ### HTMX
