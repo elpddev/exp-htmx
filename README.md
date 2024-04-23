@@ -19,6 +19,26 @@ Instead of replacing the inner html, the target could be specified to swap the o
 <form hx-swap="outerHTML">
 ```
 
+### Adding only one item to the dom - Not replacing all list
+
+[hx-swap-oob](https://htmx.org/attributes/hx-swap-oob/)
+
+The hx-swap-oob attribute allows you to specify that some content in a response should be swapped into the DOM **somewhere other** than the target, that is “Out of Band”. 
+
+This allows you to piggy back updates to other element updates on a response.
+
+For oob swap, we also need to specify what the original target should be replaced with. Otherwise it will be replaced with null.
+
+### Debugging
+
+https://htmx.org/docs/#debugging
+
+On the console:
+
+```
+htmx.logAll()
+```
+
 ## Tools & Technologies
 
 ### HTMX

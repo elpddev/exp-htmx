@@ -9,33 +9,65 @@
     <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
   </head>
   <body>
-    {{ template "form" . }}
+    {{ template "form" .Form }}
     <hr />
-      {{ template "display" . }}
+    {{ template "display" .Data }}
   </body>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.addEventListener("htmx:beforeSwap", function(event) {
+      if (event.detail.xhr.status === 422) {
+        event.detail.shouldSwap = true;
+        event.detail.isError = false;
+      }
+    });
+  });
+</script>
 </html>
 {{ end }} 
 
 {{ block "form" . }}
-<form hx-swap="outerHTML" hx-post="/contacts" hx-target="#display">
+<form id="form" hx-swap="outerHTML" hx-post="/contacts" >
   <div style="display: flex; flex-direction=column;">
     <label>name:</label> 
-    <input type="text" name="name" /> 
+    <input type="text" name="name" 
+      {{ if .Values.name }} value="{{ .Values.name }}" {{ end }}
+    /> 
     <label>email:</label> 
-    <input type="email" name="email" />
+    <input type="email" name="email" 
+      {{ if .Values.email }} value="{{ .Values.email }}" {{ end }}
+    />
+
+    {{ if .Errors.name }}
+    <div style="color: red;">{{ .Errors.name }}</div>
+    {{ end}}
+
+    {{ if .Errors.email }}
+    <div style="color: red;">{{ .Errors.email }}</div>
+    {{ end}}
+
     <button type="submit">Create Contact</button>
   </div>
 </form>
 {{ end }} 
 
 {{ block "display" . }}
-<div id="display">
-  <div style="display: flex; flex-direction: column;">
+<div id="contacts" style="display: flex; flex-direction: column;">
     {{ range .Contacts }}
-    <div>
-      Name: <span>{{ .Name }}</span> 
-      Email: <span>{{ .Email }}</span></div>
+      {{ template "contact" .}}
     {{ end}}
-  </div>
 </div>
 {{ end }}
+
+{{ block "contact" . }}
+<div>
+  Name: <span>{{ .Name }}</span> 
+  Email: <span>{{ .Email }}</span>
+</div>
+{{ end}}
+
+{{ block "oob-contact" . }}
+<div id="contacts" hx-swap-oob="afterbegin">
+  {{ template "contact" . }}
+</div>
+{{ end}}
