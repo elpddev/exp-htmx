@@ -4,6 +4,9 @@
 
 Follow along of Frontend master & Primagen course - [FULL Introduction To HTMX Using Golang](https://youtu.be/x7v6SNIgJpE?si=_utehPM_u_phix4M).
 
+* https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw
+* https://duckduckgo.com/?t=ffab&q=frontend+master&ia=web
+  
 ## Tools & Technologies
 
 ### HTMX
