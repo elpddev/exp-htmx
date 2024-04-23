@@ -4,6 +4,12 @@ Follow along of Frontend master & Primagen course - [FULL Introduction To HTMX U
 
 ## Tools
 
+### HTMX
+
+htmx gives you access to AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so you can build modern user interfaces with the simplicity and power of hypertext
+
+https://htmx.org/
+
 ### Go
 
 An open-source programming language
