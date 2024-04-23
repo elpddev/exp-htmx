@@ -1,16 +1,20 @@
 {{ block "index" .}}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>Exploration - Htmx</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
     <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
   </head>
   <body>
-    Count {{ .Count }}
-    <button hx-post="/count" hx-target="body">Increment</button>
+    <div id="count">{{ template "count" . }}</div>
+    <button hx-post="/count" hx-target="#count">Increment</button>
   </body>
 </html>
-{{ end}}
+{{ end }} 
+
+{{ block "count" . }} 
+  Count {{ .Count }} 
+{{ end }}
