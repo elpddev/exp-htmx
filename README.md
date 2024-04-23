@@ -1,8 +1,10 @@
-# Exploration - Htmx
+![logo](https://github.com/elpddev/exp-htmx/assets/17731302/32d82564-8bfd-4026-83f5-209abfa10844)
+
+# HTMX - Exploration
 
 Follow along of Frontend master & Primagen course - [FULL Introduction To HTMX Using Golang](https://youtu.be/x7v6SNIgJpE?si=_utehPM_u_phix4M).
 
-## Tools
+## Tools & Technologies
 
 ### HTMX
 
