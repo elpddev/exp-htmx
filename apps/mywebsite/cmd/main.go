@@ -61,7 +61,10 @@ func main() {
   })
 
   e.POST("/contacts",  func(c echo.Context) error {
-    data.Contacts = append(data.Contacts, newContact(c.FormValue("name"), c.FormValue("email")))
+    name := c.FormValue("name")
+    email := c.FormValue("email")
+    contact := newContact(name, email)
+    data.Contacts = append(data.Contacts, contact)
     return c.Render(200, "display", data)
   })
 

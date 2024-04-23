@@ -11,15 +11,13 @@
   <body>
     {{ template "form" . }}
     <hr />
-    <div id="display">
       {{ template "display" . }}
-    </div>
   </body>
 </html>
 {{ end }} 
 
 {{ block "form" . }}
-<form hx-post="/contacts" hx-target="#display">
+<form hx-swap="outerHTML" hx-post="/contacts" hx-target="#display">
   <div style="display: flex; flex-direction=column;">
     <label>name:</label> 
     <input type="text" name="name" /> 
@@ -31,11 +29,13 @@
 {{ end }} 
 
 {{ block "display" . }}
-<div style="display: flex; flex-direction: column;">
-  {{ range .Contacts }}
-  <div>
-    Name: <span>{{ .Name }}</span> 
-    Email: <span>{{ .Email }}</span></div>
-  {{ end}}
+<div id="display">
+  <div style="display: flex; flex-direction: column;">
+    {{ range .Contacts }}
+    <div>
+      Name: <span>{{ .Name }}</span> 
+      Email: <span>{{ .Email }}</span></div>
+    {{ end}}
+  </div>
 </div>
 {{ end }}
