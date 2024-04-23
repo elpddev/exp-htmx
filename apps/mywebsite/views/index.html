@@ -10,7 +10,7 @@
   </head>
   <body>
     Count {{ .Count }}
-    <button hx-post="/count">Increment</button>
+    <button hx-post="/count" hx-target="body">Increment</button>
   </body>
 </html>
 {{ end}}
