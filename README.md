@@ -51,24 +51,24 @@ The hx-delete attribute will cause an element to issue a DELETE to the specified
 
 ```go
 e.DELETE("/contacts/:id",  func(c echo.Context) error {
-id := c.Param("id")
-idNum, err := strconv.Atoi(id)
+    id := c.Param("id")
+    idNum, err := strconv.Atoi(id)
 
-if (err != nil) { 
-  return c.String(400, "invalid id")
-}
+    if (err != nil) { 
+      return c.String(400, "invalid id")
+    }
 
-index := page.Data.indexOf(idNum)
-if (index == -1) {
-  return c.String(404, "contact not found")
-}
+    index := page.Data.indexOf(idNum)
+    if (index == -1) {
+      return c.String(404, "contact not found")
+    }
 
-page.Data.Contacts = append(
-  page.Data.Contacts[:index], 
-  page.Data.Contacts[index+1:]...
-)
+    page.Data.Contacts = append(
+      page.Data.Contacts[:index], 
+      page.Data.Contacts[index+1:]...
+    )
 
-return c.NoContent(200)
+    return c.NoContent(200)
 })
 ```
 
