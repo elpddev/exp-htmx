@@ -14,6 +14,7 @@ type Templates struct {
 type Contact struct {
   Name string
   Email string
+  Id int
 }
 
 type Contacts = []Contact
@@ -42,10 +43,14 @@ func newTemplate() *Templates {
   }
 }
 
+var idNum int = 0
+
 func newContact(name string, email string) Contact {
+  idNum++ 
   return Contact{
     Name: name,
     Email: email,
+    Id: idNum,
   }
 }
 

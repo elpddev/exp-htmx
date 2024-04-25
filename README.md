@@ -39,6 +39,16 @@ On the console:
 htmx.logAll()
 ```
 
+### Delete
+
+[hx-delete](https://htmx.org/attributes/hx-delete/)
+
+The hx-delete attribute will cause an element to issue a DELETE to the specified URL and swap the HTML into the DOM using a swap strategy:
+
+```html
+  <button hx-delete="/contacts/{{ .Id }}">Delete</button>
+```
+
 ## Tools & Technologies
 
 ### HTMX

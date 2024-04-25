@@ -60,9 +60,10 @@
 {{ end }}
 
 {{ block "contact" . }}
-<div>
+<div id="contact-{{ .Id }}">
   Name: <span>{{ .Name }}</span> 
   Email: <span>{{ .Email }}</span>
+  <button hx-delete="/contacts/{{ .Id }}">Delete</button>
 </div>
 {{ end}}
 
