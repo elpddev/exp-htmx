@@ -63,7 +63,10 @@
 <div id="contact-{{ .Id }}">
   Name: <span>{{ .Name }}</span> 
   Email: <span>{{ .Email }}</span>
-  <button hx-delete="/contacts/{{ .Id }}">Delete</button>
+  <button 
+    hx-target="#contact-{{ .Id }}"
+    hx-swap="outerHTML"
+    hx-delete="/contacts/{{ .Id }}">Delete</button>
 </div>
 {{ end}}
 
