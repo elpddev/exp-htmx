@@ -65,11 +65,11 @@
 {{ end }}
 
 {{ define "contact" }}
-<div id="contact-{{ .Id }}" class="flex flex-row">
+<div id="contact-{{ .Id }}" class="contact flex flex-row">
   <button 
     hx-indicator="#ci-{{ .Id }}"
     hx-target="#contact-{{ .Id }}"
-    hx-swap="outerHTML"
+    hx-swap="outerHTML swap:500ms"
     hx-delete="/contacts/{{ .Id }}">Delete</button>
 
   Name: <span>{{ .Name }}</span> 
