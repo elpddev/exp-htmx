@@ -9,6 +9,73 @@ Follow along of Frontend master & Primagen course - [FULL Introduction To HTMX U
 
 ## Follow Along
 
+### Go Basic Server
+
+#### main
+
+[Declaring a package](https://go.dev/ref/spec#Package_clause
+) [`main`](https://go.dev/ref/spec#Program_initialization)
+
+Program execution begins by initializing the program and then invoking the function main in package main. When that function invocation returns, the program exits. It does not wait for other (non-main) goroutines to complete. 
+
+```
+package main
+```
+
+#### import
+
+Using [import statement](https://go.dev/ref/spec#Import_declarations) to bring other packages code to use.
+
+An import declaration states that the source file containing the declaration depends on functionality of the imported package (§Program initialization and execution) and enables access to exported identifiers of that package. The import names an identifier (PackageName) to be used for access and an ImportPath that specifies the package to be imported.
+
+```go
+import (
+	"html/template"
+	"io"
+	"strconv"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
+)
+```
+
+#### type / struct
+
+A struct is a sequence of named elements, called fields, each of which has a name and a type. Field names may be specified explicitly (IdentifierList) or implicitly (EmbeddedField). Within a struct, non-blank field names must be unique.
+
+https://go.dev/ref/spec#Struct_types
+
+```go
+// An empty struct.
+struct {}
+
+// A struct with 6 fields.
+struct {
+	x, y int
+	u float32
+	_ float32  // padding
+	A *[]int
+	F func()
+}
+```
+
+##### Array
+
+An array is a numbered sequence of elements of a single type, called the element type. The number of elements is called the length of the array and is never negative.
+
+https://go.dev/ref/spec#ArrayType
+
+```go
+[32]byte
+[2*N] struct { x, y int32 }
+[1000]*float64
+[3][5]int
+[2][2][2]float64  // same as [2]([2]([2]float64))
+```
+
+```go
+type Contacts = []Contact
+```
+
 ### Form Replacing Inner - Creating Double 'Display'
 
 Instead of replacing the inner html, the target could be specified to swap the outer html.
