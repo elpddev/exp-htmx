@@ -167,6 +167,23 @@ e.DELETE("/contacts/:id",  func(c echo.Context) error {
 })
 ```
 
+### Interactivity
+
+Problem: when pressing delete and a slow request is done, no visual indicator are shown to the user until the row is suddenly removed.
+
+Solution: visual indicator that an operation is in progress.
+
+#### Serving Static Files - CSS
+
+Echo#Static(prefix, root string) registers a new route with path prefix to serve static files from the provided root directory.
+
+https://echo.labstack.com/docs/static-files
+
+```go
+e.Static("/images", "images")
+e.Static("/css", "css")
+```
+
 ## Tools & Technologies
 
 ### HTMX
