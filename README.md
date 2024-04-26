@@ -38,7 +38,35 @@ import (
 )
 ```
 
-#### type / struct
+#### type definition
+
+A type definition creates a new, distinct type with the same underlying type and operations as the given type and binds an identifier, the type name, to it.
+
+```
+TypeDef = identifier [ TypeParameters ] Type .
+```
+
+https://go.dev/ref/spec#Type_definitions
+
+```go
+type (
+	Point struct{ x, y float64 }  // Point and struct{ x, y float64 } are different types
+	polar Point                   // polar and Point denote different types
+)
+
+type TreeNode struct {
+	left, right *TreeNode
+	value any
+}
+
+type Block interface {
+	BlockSize() int
+	Encrypt(src, dst []byte)
+	Decrypt(src, dst []byte)
+}
+```
+
+#### struct
 
 A struct is a sequence of named elements, called fields, each of which has a name and a type. Field names may be specified explicitly (IdentifierList) or implicitly (EmbeddedField). Within a struct, non-blank field names must be unique.
 
